@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Thêm mơi</h1>
+<form action="/employees/add" method="post" th:object="${employee}">
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <td><input type="text" th:field="*{name}">
+            <span class="danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>BirthDay</th>
+            <td><input type="date" th:field="*{birthDay}"></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type="text" th:field="*{email}">
+                <span class="danger"  th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span></td>
+        </tr>
+        <tr>
+            <th>Sex</th>
+            <td><input type="radio" name="sex" value="true"><span>Nam</span>
+                <input type="radio" name="sex" value="false"><span>Nữ</span> </td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td><input type="text" th:field="*{address}"></td>
+        </tr>
+        <tr>
+            <th colspan="2"><input type="submit" value="Add"></th>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
